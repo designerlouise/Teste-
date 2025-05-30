@@ -1,0 +1,509 @@
+/* Main Styles for Netflix-like UI */
+:root {
+    --netflix-red: #e50914;
+    --netflix-black: #000000;
+    --netflix-dark-gray: #141414;
+    --netflix-light-gray: #333333;
+    --netflix-white: #ffffff;
+}
+
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-color: var(--netflix-dark-gray);
+    color: var(--netflix-white);
+    overflow-x: hidden;
+}
+
+/* Header */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 4%;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 10%, rgba(0, 0, 0, 0));
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    transition: background-color 0.3s;
+}
+
+.header.scrolled {
+    background-color: var(--netflix-black);
+}
+
+.logo {
+    height: 40px;
+    margin-right: 25px;
+}
+
+.logo h1 {
+    color: var(--netflix-red);
+    font-size: 2rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links a {
+    color: #e5e5e5;
+    margin-left: 20px;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover, 
+.nav-links a.active {
+    color: var(--netflix-white);
+}
+
+.language-selector {
+    margin-left: auto;
+    margin-right: 20px;
+}
+
+#language-select {
+    background-color: transparent;
+    color: white;
+    padding: 5px 25px 5px 10px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 2px;
+    appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="white" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 5px center;
+    cursor: pointer;
+}
+
+/* Hero Banner */
+.hero-banner {
+    position: relative;
+    height: 80vh;
+    min-height: 500px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.hero-banner::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 7.5rem;
+    background-image: linear-gradient(to bottom, transparent, var(--netflix-dark-gray));
+}
+
+.hero-content {
+    position: absolute;
+    bottom: 35%;
+    left: 4%;
+    width: 36%;
+    z-index: 10;
+}
+
+.hero-title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-description {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 20px;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-primary {
+    background-color: var(--netflix-white);
+    color: var(--netflix-black);
+}
+
+.btn-primary:hover {
+    background-color: rgba(255, 255, 255, 0.75);
+}
+
+.btn-secondary {
+    background-color: rgba(109, 109, 110, 0.7);
+    color: var(--netflix-white);
+}
+
+.btn-secondary:hover {
+    background-color: rgba(109, 109, 110, 0.4);
+}
+
+.btn i {
+    margin-right: 8px;
+}
+
+/* Hero Background */
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* ÁREA EDITÁVEL: Imagem de fundo do banner principal */
+    background-image: url('../images/hero-background.jpg');
+    background-size: cover;
+    background-position: center top;
+    z-index: -1;
+}
+
+.hero-vignette {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        77deg,
+        rgba(0, 0, 0, 0.6) 0,
+        rgba(0, 0, 0, 0) 85%
+    );
+    z-index: 8;
+}
+
+/* Carrossel de Seções */
+.section-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin: 20px 0 10px 4%;
+    color: #e5e5e5;
+}
+
+.carousel {
+    position: relative;
+    padding: 0 4%;
+    margin-bottom: 40px;
+}
+
+.carousel-container {
+    display: flex;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    margin: 0 -10px;
+}
+
+.carousel-item {
+    flex: 0 0 calc(100% / 6 - 10px);
+    margin: 0 5px;
+    transition: transform 0.3s;
+    position: relative;
+    border-radius: 4px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.carousel-item:hover {
+    transform: scale(1.08);
+    z-index: 10;
+}
+
+.carousel-item:hover .item-info {
+    opacity: 1;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.item-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+    padding: 10px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.item-title {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.carousel-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: 5;
+}
+
+.carousel:hover .carousel-control {
+    opacity: 1;
+}
+
+.carousel-control.left {
+    left: 0;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+.carousel-control.right {
+    right: 0;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+.carousel-control i {
+    font-size: 2rem;
+    color: white;
+}
+
+/* Footer */
+.footer {
+    padding: 50px 4%;
+    margin-top: 20px;
+    color: #757575;
+    background-color: var(--netflix-black);
+}
+
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.footer-links a {
+    width: 25%;
+    margin-bottom: 15px;
+    color: #757575;
+    font-size: 13px;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+.copyright {
+    font-size: 13px;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .carousel-item {
+        flex: 0 0 calc(100% / 4 - 10px);
+    }
+    
+    .hero-content {
+        width: 50%;
+    }
+}
+
+@media (max-width: 768px) {
+    .carousel-item {
+        flex: 0 0 calc(100% / 3 - 10px);
+    }
+    
+    .hero-content {
+        width: 70%;
+        bottom: 30%;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .footer-links a {
+        width: 33.333%;
+    }
+}
+
+@media (max-width: 480px) {
+    .carousel-item {
+        flex: 0 0 calc(100% / 2 - 10px);
+    }
+    
+    .hero-content {
+        width: 90%;
+        bottom: 25%;
+    }
+    
+    .hero-title {
+        font-size: 1.5rem;
+    }
+    
+    .hero-description {
+        font-size: 1rem;
+    }
+    
+    .footer-links a {
+        width: 50%;
+    }
+    
+    .nav-links a {
+        margin-left: 10px;
+        font-size: 12px;
+    }
+}
+
+/* Detail Page Styles */
+.detail-page {
+    padding-top: 70px;
+}
+
+.detail-hero {
+    position: relative;
+    height: 60vh;
+    min-height: 400px;
+    margin-bottom: 30px;
+}
+
+.detail-hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* ÁREA EDITÁVEL: Imagem de fundo da página de detalhes */
+    background-image: url('../images/detail-background.jpg');
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+}
+
+.detail-hero-vignette {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to bottom,
+        rgba(20, 20, 20, 0) 0%,
+        rgba(20, 20, 20, 0.8) 60%,
+        rgba(20, 20, 20, 1) 100%
+    );
+    z-index: 1;
+}
+
+.detail-content {
+    position: relative;
+    z-index: 2;
+    padding: 0 4%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.detail-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.detail-text {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.back-button {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: var(--netflix-red);
+    color: white;
+    border-radius: 4px;
+    font-weight: 600;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.back-button:hover {
+    background-color: #f40612;
+}
+
+.back-button i {
+    margin-right: 8px;
+}
+
+/* Animation Classes */
+.fade-in {
+    animation: fadeIn 1s ease-in-out;
+}
+
+.slide-up {
+    animation: slideUp 0.8s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { 
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to { 
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Netflix Glitch Animation */
+.netflix-glitch {
+    animation: glitch 0.5s cubic-bezier(.25, .46, .45, .94) both;
+}
+
+@keyframes glitch {
+    0% {
+        transform: translate(0);
+    }
+    20% {
+        transform: translate(-2px, 2px);
+    }
+    40% {
+        transform: translate(-2px, -2px);
+    }
+    60% {
+        transform: translate(2px, 2px);
+    }
+    80% {
+        transform: translate(2px, -2px);
+    }
+    100% {
+        transform: translate(0);
+    }
+}
