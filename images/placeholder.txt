@@ -1,0 +1,15 @@
+Esta pasta contém as imagens do projeto.
+
+Substitua este arquivo e adicione suas próprias imagens:
+
+1. background.jpg - Imagem de fundo da página de login
+2. hero-background.jpg - Imagem de fundo do banner principal
+3. detail-background.jpg - Imagem de fundo das páginas de detalhes
+4. Imagens para os carrosséis (about-1.jpg, about-2.jpg, etc.)
+5. Imagens para as seções de serviços (service-1.jpg, etc.)
+6. Imagens para as seções de ajuda (help-1.jpg, etc.)
+
+Recomendações:
+- Use imagens de alta qualidade
+- Mantenha proporções consistentes para os itens do carrossel
+- Para o fundo da página de login e banner principal, use imagens escuras ou que funcionem bem com sobreposição de texto
