@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Louise Design | Login</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Seletor de idioma -->
+    <div class="language-selector">
+        <select id="language-select" aria-label="Selecionar idioma">
+            <option value="pt">Português</option>
+            <option value="en">English</option>
+        </select>
+    </div>
+
+    <div class="login-wrapper">
+        <!-- ÁREA EDITÁVEL: Imagem de fundo -->
+        <div class="login-background">
+            <!-- A imagem de fundo é definida via CSS em login.css -->
+        </div>
+        
+        <div class="login-body">
+            <!-- ÁREA EDITÁVEL: Logo -->
+            <div class="login-logo">
+                <!-- Substitua o texto abaixo pela sua logo -->
+                <h1>LOUISE DESIGN</h1>
+            </div>
+            
+            <div class="login-form">
+                <h2 class="lang" data-pt="Cadastre-se para conhecer meu trabalho" data-en="Sign up to see my work"></h2>
+                
+                <form id="signup-form">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" required>
+                        <label for="name" class="lang" data-pt="Nome" data-en="Name"></label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" required>
+                        <label for="email" class="lang" data-pt="E-mail" data-en="Email"></label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="tel" id="phone" name="phone" required>
+                        <label for="phone" class="lang" data-pt="Telefone" data-en="Phone"></label>
+                    </div>
+                    
+                    <button type="submit" class="lang" data-pt="Começar" data-en="Get Started"></button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <footer class="login-footer">
+        <!-- ÁREA EDITÁVEL: Links do rodapé -->
+        <div class="footer-links">
+            <a href="#" class="lang" data-pt="Perguntas frequentes" data-en="FAQ"></a>
+            <a href="#" class="lang" data-pt="Centro de ajuda" data-en="Help Center"></a>
+            <a href="#" class="lang" data-pt="Termos de uso" data-en="Terms of Use"></a>
+            <a href="#" class="lang" data-pt="Privacidade" data-en="Privacy"></a>
+        </div>
+        
+        <!-- ÁREA EDITÁVEL: Direitos autorais -->
+        <div class="copyright">
+            <p>&copy; <span class="current-year"></span> Louise Design. <span class="lang" data-pt="Todos os direitos reservados" data-en="All rights reserved"></span>.</p>
+        </div>
+    </footer>
+
+    <script src="js/language.js"></script>
+    <script src="js/login.js"></script>
+</body>
+</html>
